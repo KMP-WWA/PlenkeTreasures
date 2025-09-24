@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Plinko Treasure</string>
+    <string name="coins">Coins: %1$d</string>
+    <string name="drop_ball">Drop Ball</string>
+    <string name="rules_text">"\n                        1. Tap \"Drop Ball\" to start.\n                        2. The ball bounces on pegs and lands in a chest.\n                        3. Your reward depends on the multiplier of the chest.\n                        4. Manage your coins wisely!\n                    "</string>
+    <string name="treasure_shop">TREASURE SHOP</string>
 </resources>

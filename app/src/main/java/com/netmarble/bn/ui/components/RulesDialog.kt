@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.netmarble.bn.ui.theme.Gold
@@ -44,12 +45,7 @@ fun RulesDialog(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = """
-                        1. Tap "Drop Ball" to start.
-                        2. The ball bounces on pegs and lands in a chest.
-                        3. Your reward depends on the multiplier of the chest.
-                        4. Manage your coins wisely!
-                    """.trimIndent(),
+                    text = stringResource(R.string.rules_text).trimIndent(),
                     color = Gold
 
                 )

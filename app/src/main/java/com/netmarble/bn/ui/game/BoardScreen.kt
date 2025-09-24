@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.netmarble.bn.ui.components.BetControl
@@ -82,7 +83,7 @@ fun BoardScreen(
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "Coins: ${state.balance}",
+                        text = stringResource(R.string.coins, state.balance),
                         style = MaterialTheme.typography.bodyLarge,
                         color = Gold,
                         fontWeight = FontWeight.Bold
@@ -168,7 +169,7 @@ fun BoardScreen(
                                 .height(34.dp)
                         ) {
                             Text(
-                                "Drop Ball",
+                                stringResource(R.string.drop_ball),
                                 style = MaterialTheme.typography.bodyLarge,
                                 fontWeight = FontWeight.Bold
                             )
