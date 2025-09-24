@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -32,13 +33,6 @@ private fun bgForIsland(id: String) = when (id) {
     else -> R.drawable.ship_deck
 }
 
-private fun titleForIsland(id: String) = when (id) {
-    "ship_deck" -> "Ship Deck"
-    "emerald_cave" -> "Emerald Cave"
-    "volcanic_island" -> "Volcanic Island"
-    else -> "Ship Deck"
-}
-
 @Composable
 fun BoardScreen(
     islandId: String,
@@ -50,6 +44,15 @@ fun BoardScreen(
     onIncBet: () -> Unit,
     onDecBet: () -> Unit
 ) {
+    val context = LocalContext.current
+
+    val islandTitle = when (islandId) {
+        context.getString(R.string.island_ship_deck) -> stringResource(R.string.island_title_ship_deck)
+        context.getString(R.string.island_emerald_cave) -> stringResource(R.string.island_title_emerald_cave)
+        context.getString(R.string.island_volcanic_island) -> stringResource(R.string.island_title_volcanic_island)
+        else -> stringResource(R.string.island_title_ship_deck)
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(bgForIsland(islandId)),
@@ -77,7 +80,7 @@ fun BoardScreen(
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        text = titleForIsland(islandId),
+                        text = islandTitle,
                         style = MaterialTheme.typography.bodyLarge,
                         color = Gold,
                         fontWeight = FontWeight.Bold
@@ -110,7 +113,7 @@ fun BoardScreen(
                     state.pegs.forEach { peg ->
                         Image(
                             painter = painterResource(R.drawable.ic_peg),
-                            contentDescription = "Peg",
+                            contentDescription = stringResource(R.string.content_desc_peg),
                             modifier = Modifier
                                 .graphicsLayer {
                                     translationX = peg.center.x - (pegSizeDp.toPx() / 2f)
@@ -124,7 +127,7 @@ fun BoardScreen(
                     if (state.ballIconRes != null && state.ballVisible) {
                         Image(
                             painter = painterResource(id = state.ballIconRes),
-                            contentDescription = "Ball",
+                            contentDescription = stringResource(R.string.content_desc_ball),
                             modifier = Modifier
                                 .graphicsLayer {
                                     translationX = state.position.x - (ballRadius * renderScale)
@@ -214,7 +217,7 @@ fun BoardScreen(
                                 ) {
                                     Image(
                                         painter = painterResource(chestRes),
-                                        contentDescription = "Chest ×${slot.multiplier}",
+                                        contentDescription = stringResource(R.string.content_desc_chest_multiplier, slot.multiplier),
                                         modifier = Modifier.size(
                                             width = chestWidthDp,
                                             height = chestHeight

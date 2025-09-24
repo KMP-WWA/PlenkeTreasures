@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,7 +43,7 @@ fun BetControl(
         ) {
             Image(
                 painter = painterResource(R.drawable.ic_down),
-                contentDescription = "Dec",
+                contentDescription = stringResource(R.string.content_desc_decrease),
                 modifier = Modifier
                     .size(20.dp)
                     .clickable { onDec() }
@@ -51,7 +52,7 @@ fun BetControl(
             Spacer(Modifier.width(12.dp))
 
             Text(
-                text = "Bet $bet",
+                text = stringResource(R.string.bet_text, bet),
                 fontFamily = Marcellus,
                 color = Gold,
                 fontWeight = FontWeight.Bold,
@@ -62,7 +63,7 @@ fun BetControl(
 
             Image(
                 painter = painterResource(R.drawable.ic_up),
-                contentDescription = "Inc",
+                contentDescription = stringResource(R.string.content_desc_increase),
                 modifier = Modifier
                     .size(20.dp)
                     .clickable { onInc() }

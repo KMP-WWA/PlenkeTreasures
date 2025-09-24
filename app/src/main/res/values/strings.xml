@@ -2,6 +2,60 @@
     <string name="app_name">Plinko Treasure</string>
     <string name="coins">Coins: %1$d</string>
     <string name="drop_ball">Drop Ball</string>
-    <string name="rules_text">"\n                        1. Tap \"Drop Ball\" to start.\n                        2. The ball bounces on pegs and lands in a chest.\n                        3. Your reward depends on the multiplier of the chest.\n                        4. Manage your coins wisely!\n                    "</string>
+    <string name="rules_text">"""
+        1. Tap \"Drop Ball\" to start.
+        2. The ball bounces on pegs and lands in a chest.
+        3. Your reward depends on the multiplier of the chest.
+        4. Manage your coins wisely!"""</string>
     <string name="treasure_shop">TREASURE SHOP</string>
+
+    <string name="route_start">start</string>
+    <string name="route_shop">shop</string>
+    <string name="route_board">board?island={island}</string>
+    <string name="route_board_with_param">board?island=%1$s</string>
+    <string name="default_island_id">ship_deck</string>
+    <string name="nav_argument_island">island</string>
+
+    <string name="logo">Logo</string>
+    <string name="play">Play</string>
+    <string name="shop">Shop</string>
+    <string name="music_on">Music On</string>
+    <string name="music_off">Music Off</string>
+    <string name="rules">Rules</string>
+    <string name="back">Back</string>
+    <string name="text_coins">%1$d coins</string>
+    <string name="item_selected">Selected</string>
+    <string name="equip">Equip</string>
+    <string name="buy">Buy</string>
+    <string name="not_enough">Not enough</string>
+
+    <string name="island_ship_deck">ship_deck</string>
+    <string name="island_emerald_cave">emerald_cave</string>
+    <string name="island_volcanic_island">volcanic_island</string>
+
+    <integer name="requirement_ship_deck">0</integer>
+    <integer name="requirement_emerald_cave">50</integer>
+    <integer name="requirement_volcanic_island">150</integer>
+
+    <string name="datastore_stats_name">stats_prefs</string>
+    <string name="pref_key_total_drops">total_drops</string>
+
+    <string name="island_title_ship_deck">Ship Deck</string>
+    <string name="island_title_emerald_cave">Emerald Cave</string>
+    <string name="island_title_volcanic_island">Volcanic Island</string>
+
+    <string name="content_desc_peg">Peg</string>
+    <string name="content_desc_ball">Ball</string>
+    <string name="content_desc_chest_multiplier">Chest ×%1$.1f</string>
+    <string name="button_scale">button_scale</string>
+    <string name="rules_background">Rules Background</string>
+    <string name="close">Close</string>
+
+    <string name="win_text">Won: %1$d (×%2$.1f)</string>
+
+    <string name="drops_progress">Drops: %1$d/%2$d</string>
+
+    <string name="bet_text">Bet %1$d</string>
+    <string name="content_desc_decrease">Decrease bet</string>
+    <string name="content_desc_increase">Increase bet</string>
 </resources>

@@ -16,8 +16,10 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.netmarble.bn.R
 import com.netmarble.bn.ui.theme.Gold
 
 @Composable
@@ -76,7 +78,7 @@ fun IslandCard(
             )
             if (locked) {
                 Text(
-                    text = "Drops: $progressCurrent/$progressTarget",
+                    text = stringResource(R.string.drops_progress, progressCurrent, progressTarget),
                     style = MaterialTheme.typography.bodyLarge,
                     color = Gold
                 )

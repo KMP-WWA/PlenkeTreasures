@@ -1,5 +1,6 @@
 package com.netmarble.bn.ui.start
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.netmarble.bn.R
@@ -10,6 +11,7 @@ import com.netmarble.bn.core.domain.usecase.GetDropsCountUseCase
 import com.netmarble.bn.core.domain.usecase.GetIslandsUseCase
 import com.netmarble.bn.ui.model.IslandUi
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -30,18 +32,21 @@ class StartViewModel @Inject constructor(
     getBalance: GetBalanceUseCase,
     getIslands: GetIslandsUseCase,
     getDropsCount: GetDropsCountUseCase,
-    private val bgmPlayer: BgmPlayer
+    private val bgmPlayer: BgmPlayer,
+    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private val islandsInternal = MutableStateFlow(getIslands())
     private val selectedIndex = MutableStateFlow(0)
     private val musicToggle = MutableStateFlow(true)
 
-    private val requirements: Map<String, Int> = mapOf(
-        "ship_deck" to 0,
-        "emerald_cave" to 50,
-        "volcanic_island" to 150
-    )
+    private val requirements: Map<String, Int> by lazy {
+        mapOf(
+            context.getString(R.string.island_ship_deck) to context.resources.getInteger(R.integer.requirement_ship_deck),
+            context.getString(R.string.island_emerald_cave) to context.resources.getInteger(R.integer.requirement_emerald_cave),
+            context.getString(R.string.island_volcanic_island) to context.resources.getInteger(R.integer.requirement_volcanic_island)
+        )
+    }
 
     val uiState: StateFlow<StartUiState> = combine(
         getBalance(),
@@ -73,10 +78,9 @@ class StartViewModel @Inject constructor(
 
     fun toggleMusic() {
         musicToggle.value = !musicToggle.value
+        bgmPlayer.setMusicEnabled(musicToggle.value)
         if (musicToggle.value) {
             bgmPlayer.play(R.raw.music)
-        } else {
-            bgmPlayer.pause()
         }
     }
 

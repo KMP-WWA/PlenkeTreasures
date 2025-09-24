@@ -27,7 +27,7 @@ fun RulesDialog(
         ) {
             Image(
                 painter = painterResource(R.drawable.ic_rules_dialog),
-                contentDescription = "Rules Background",
+                contentDescription = stringResource(R.string.rules_background),
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Fit
             )
@@ -55,7 +55,7 @@ fun RulesDialog(
                 IconButton(onClick = onDismiss) {
                     Image(
                         painter = painterResource(R.drawable.ic_close),
-                        contentDescription = "Close",
+                        contentDescription = stringResource(R.string.close),
                         modifier = Modifier.size(36.dp)
                     )
                 }

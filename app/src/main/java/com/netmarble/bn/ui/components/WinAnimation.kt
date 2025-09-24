@@ -10,9 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.netmarble.bn.R
 import com.netmarble.bn.ui.theme.Marcellus
 import com.netmarble.bn.ui.theme.Gold
 import kotlinx.coroutines.delay
@@ -70,7 +72,7 @@ fun WinAnimation(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "Won: $winAmount (×$multiplier)",
+                text = stringResource(R.string.win_text, winAmount, multiplier),
                 fontFamily = Marcellus,
                 fontSize = 24.sp,
                 color = Gold,

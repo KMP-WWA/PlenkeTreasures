@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.netmarble.bn.core.domain.repository.StatsRepository
+import com.netmarble.bn.R
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -16,7 +17,9 @@ class StatsRepositoryImpl(
     private val context: Context
 ) : StatsRepository {
 
-    private val keyDrops = intPreferencesKey("total_drops")
+    private val keyDrops by lazy {
+        intPreferencesKey(context.getString(R.string.pref_key_total_drops))
+    }
 
     override val dropsCount: Flow<Int> =
         context.statsDataStore.data.map { it[keyDrops] ?: 0 }

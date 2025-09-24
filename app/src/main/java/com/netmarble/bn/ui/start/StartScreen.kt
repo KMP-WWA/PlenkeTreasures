@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.netmarble.bn.R
 import com.netmarble.bn.ui.components.DotsIndicator
@@ -73,7 +74,7 @@ fun StartScreen(
         ) {
             Image(
                 painter = painterResource(R.drawable.logo),
-                contentDescription = "Logo",
+                contentDescription = stringResource(R.string.logo),
                 modifier = Modifier
                     .padding(top = 8.dp, bottom = 4.dp)
                     .size(width = 220.dp, height = 150.dp)
@@ -146,7 +147,7 @@ fun StartScreen(
             ) {
                 Image(
                     painter = painterResource(R.drawable.ic_play_btn),
-                    contentDescription = "Play",
+                    contentDescription = stringResource(R.string.play),
                     modifier = Modifier.fillMaxSize()
                 )
             }
@@ -159,7 +160,7 @@ fun StartScreen(
             ) {
                 Image(
                     painter = painterResource(R.drawable.ic_shop_btn),
-                    contentDescription = "Shop",
+                    contentDescription = stringResource(R.string.shop),
                     modifier = Modifier.fillMaxSize()
                 )
             }
@@ -177,7 +178,9 @@ fun StartScreen(
                 ) {
                     Image(
                         painter = painterResource(if (isMusicOn) R.drawable.ic_music_on else R.drawable.ic_music_off),
-                        contentDescription = if (isMusicOn) "Music On" else "Music Off",
+                        contentDescription = if (isMusicOn) stringResource(R.string.music_on) else stringResource(
+                            R.string.music_off
+                        ),
                         modifier = Modifier.fillMaxSize()
                     )
                 }
@@ -187,7 +190,7 @@ fun StartScreen(
                 ) {
                     Image(
                         painter = painterResource(R.drawable.ic_rules_btn),
-                        contentDescription = "Rules",
+                        contentDescription = stringResource(R.string.rules),
                         modifier = Modifier.fillMaxSize()
                     )
                 }

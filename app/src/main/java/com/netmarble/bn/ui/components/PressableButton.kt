@@ -11,6 +11,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.stringResource
+import com.netmarble.bn.R
 
 @Composable
 fun PressableButton(
@@ -24,7 +26,7 @@ fun PressableButton(
     val scale by animateFloatAsState(
         targetValue = if (isPressed) 0.92f else 1f,
         animationSpec = tween(durationMillis = 150),
-        label = "button_scale"
+        label = stringResource(R.string.button_scale)
     )
 
     Box(

@@ -71,7 +71,7 @@ fun ShopScreen(
                 ) {
                     Image(
                         painter = painterResource(R.drawable.ic_back),
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         modifier = Modifier
                             .size(width = 60.dp, height = 40.dp)
                             .clickable { onBack() }
@@ -92,7 +92,7 @@ fun ShopScreen(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Coins: ${state.balance}",
+                    text = stringResource(R.string.coins, state.balance),
                     fontFamily = Marcellus,
                     color = Gold,
                     fontWeight = FontWeight.Bold,
@@ -157,7 +157,7 @@ fun ShopScreen(
                                 )
 
                                 Text(
-                                    text = "${item.skin.price} coins",
+                                    text = stringResource(R.string.text_coins, item.skin.price),
                                     fontFamily = Marcellus,
                                     color = Color.White,
                                     fontWeight = FontWeight.Bold,
@@ -167,14 +167,14 @@ fun ShopScreen(
                                     item.selected -> {
                                         Image(
                                             painter = painterResource(R.drawable.ic_equipped),
-                                            contentDescription = "Selected",
+                                            contentDescription = stringResource(R.string.item_selected),
                                             modifier = Modifier.size(width = 120.dp, height = 38.dp)
                                         )
                                     }
                                     item.owned -> {
                                         Image(
                                             painter = painterResource(R.drawable.ic_equip),
-                                            contentDescription = "Equip",
+                                            contentDescription = stringResource(R.string.equip),
                                             modifier = Modifier
                                                 .size(width = 120.dp, height = 38.dp)
                                                 .clickable { onEquip(item.skin.id) }
@@ -183,7 +183,9 @@ fun ShopScreen(
                                     else -> {
                                         Image(
                                             painter = painterResource(R.drawable.ic_buy_btn),
-                                            contentDescription = if (item.canBuy) "Buy" else "Not enough",
+                                            contentDescription = if (item.canBuy) stringResource(R.string.buy) else stringResource(
+                                                R.string.not_enough
+                                            ),
                                             modifier = Modifier
                                                 .size(width = 120.dp, height = 38.dp)
                                                 .clickable {
